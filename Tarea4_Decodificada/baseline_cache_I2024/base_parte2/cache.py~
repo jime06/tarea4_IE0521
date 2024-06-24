@@ -1,0 +1,90 @@
+from math import log2 ,floor 
+class cache:
+    def __init__(self,cache_capacity,cache_assoc,block_size,repl_policy):
+        self.total_access = 0 
+        self.total_misses = 0 
+        self.total_reads = 0 
+        self.total_read_misses = 0 
+        self.total_writes = 0 
+        self.total_write_misses = 0 
+        self.cache_capacity = int(cache_capacity)
+        self.cache_assoc = int(cache_assoc)
+        self.block_size = int(block_size)
+        self.repl_policy = repl_policy
+        self.byte_offset_size = log2(self.block_size )
+        self.num_sets = int((self.cache_capacity * 1024 )/(self.block_size * self.cache_assoc))
+        self.index_size = int(log2 (self.num_sets ))
+        self.valid_table = [[False for i in range(self.cache_assoc)] for j in range(self.num_sets)]
+        self.tag_table = [[0 for i in range(self.cache_assoc)] for j in range(self.num_sets)]
+        self.repl_table = [[0 for i in range(self.cache_assoc)] for j in range(self.num_sets)]
+
+    def print_info(self):
+        print ("Parámetros del caché:")
+        print ("\tCapacidad:\t\t\t" + str(self.cache_capacity)+" kB")
+        print ("\tAssociatividad:\t\t\t" + str(self.cache_assoc))
+        print ("\tTamaño de Bloque:\t\t\t" + str(self.block_size)+" B")
+        print ("\tPolítica de Reemplazo:\t\t\t" + str(self.repl_policy))
+
+    def print_stats (self):
+        print ("Resultados de la simulación")
+        percent_tot_misses = (100.0 * self.total_misses)/self.total_access
+        percent_tot_misses = "{:.3f}".format(percent_tot_misses)
+        percent_read_misses = (100.0 * self.total_read_misses)/self.total_reads 
+        percent_read_misses = "{:.3f}".format(percent_read_misses)
+        percent_write_missses = (100.0 * self.total_write_misses)/self.total_writes 
+        percent_write_missses = "{:.3f}".format(percent_write_missses)
+        message = str(self.total_misses) + "," + percent_tot_misses + "%," + str(self.total_read_misses) + ","
+        message += percent_read_misses + "%," + str(self.total_write_misses) + "," + percent_write_missses + "%"
+        print(message)
+
+    def access(self, access_type, access_address):
+        varv = int(access_address%(2**self.byte_offset_size))
+        varw = int(floor(access_address/(2**self.byte_offset_size))%(2**self.index_size))
+        varx = int(floor(access_address/(2**(self.byte_offset_size + self.index_size))))
+        access_found = self.find(varw, varx)
+        access_hit = False 
+        if access_found == -1:
+            self.bring_to_cache(varw ,varx )
+            self.total_misses += 1 
+            if access_type== "r":
+                self.total_read_misses += 1
+            else :
+                self.total_write_misses += 1
+            access_hit = True 
+        self.total_access += 1
+        if access_type=="r":
+            self.total_reads += 1
+        else :
+            self.total_writes += 1
+        return access_hit 
+
+    def find (self,O0O00000O0OOOO0O0, OOO0O000OO0O0O0OO):
+        for i in range(self.cache_assoc):
+            if self.valid_table[O0O00000O0OOOO0O0][i] and (self.tag_table[O0O00000O0OOOO0O0][i] == OOO0O000OO0O0O0OO ):
+                return i 
+        return -1
+
+    def bring_to_cache (self,O00OO0000OO0O00O0 ,OO00O0OOOO0O00O0O ):#line:76
+        OO000OO0OOOO0O00O =-1 #line:78
+        for OO000O00OO0000O0O in range (self.cache_assoc ):#line:79
+            if not self.valid_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]:#line:80
+                self.valid_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]=True #line:81
+                self.tag_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]=OO00O0OOOO0O00O0O #line:82
+                self.repl_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]=self.cache_assoc -1 #line:83
+                OO000OO0OOOO0O00O =OO000O00OO0000O0O #line:84
+                break #line:85
+        if self.repl_policy =="l":#line:88
+            OO00000OOO000O00O =999999 #line:89
+            for OO000O00OO0000O0O in range (self.cache_assoc ):#line:92
+                OOO0OO00O0O0000OO =self.repl_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]#line:93
+                if OOO0OO00O0O0000OO <OO00000OOO000O00O :#line:94
+                    OO00000OOO000O00O =OO000O00OO0000O0O #line:95
+            self.valid_table [O00OO0000OO0O00O0 ][OO00000OOO000O00O ]=True #line:97
+            self.tag_table [O00OO0000OO0O00O0 ][OO00000OOO000O00O ]=OO00O0OOOO0O00O0O #line:98
+            self.repl_table [O00OO0000OO0O00O0 ][OO00000OOO000O00O ]=self.cache_assoc -1 #line:99
+            OO000OO0OOOO0O00O =OO00000OOO000O00O #line:100
+            for OO000O00OO0000O0O in range (self.cache_assoc ):#line:103
+                if OO000O00OO0000O0O ==OO000OO0OOOO0O00O :#line:104
+                    continue #line:105
+                else :#line:106
+                    self.repl_table [O00OO0000OO0O00O0 ][OO000O00OO0000O0O ]-=1 
