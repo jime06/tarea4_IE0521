@@ -20,8 +20,21 @@ with gzip.open(options.TRACE_FILE,'rt') as trace_fh:
         access_type, hex_str_address  = line.split(" ")
         address = int(hex_str_address, 16)
         cache.access(access_type, address)
-        #SOLO PARA DEBUG
-        #i+=1
-        #if i == 25:
-        #    break
-cache.print_stats()
+
+# Variable para remover ubicación
+dir_source = "/home/juan/UCR/tarea4_IE0521/traces/"
+
+# Se salvan los datos en disco para procesarlos después
+results = str(cache.print_stats())
+results = results.replace("[", "")
+results = results.replace("]", "")
+file_name = "Sim_Cache_-s_{0}_-a_{1}_-b_{2}_-r_{3}_-t_{4}.csv".format(options.cache_capacity,
+                                                                  options.cache_assoc,
+                                                                  options.block_size,
+                                                                  options.repl_policy,
+                                                                  options.TRACE_FILE.replace(dir_source,""))
+
+archivo = open(file_name, "w")
+archivo.write(results)
+archivo.close()
+

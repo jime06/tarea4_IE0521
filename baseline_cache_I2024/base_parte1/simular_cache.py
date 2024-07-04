@@ -2,34 +2,22 @@
 # Se encarga de llevar a cabo las simulación
 '''
 Este script se encarga de ejecutar y salvar las pruebas de champsim de la
-tarea 3 de IE0521.
+tarea 4 de IE0521.
 '''
 # Bibliotecas
-import cache
-import cache_sim
 import time
 import datetime
 from os import system, getcwd, chdir, listdir
 from pdb import set_trace
 
 # Funciones
-def obtener_orig_cfg(dir_champsim, archivo_config):
-    # Leer la configuracion original del directorio de champsim
-    chdir(dir_champsim) # Se va al directorio de champsim para editar cfg
-    system("rm champsim_config.json")
-    system("cp champsim_config.json.bak champsim_config.json")
-    archivo_cfg = open((dir_champsim + archivo_config), 'r')
-    config = json.load(archivo_cfg)
-    archivo_cfg.close()
-    return config
-
-
-def sim_cache_parameters(Traces, config_original, dir_champsim, archivo_config, dir_Traces, dir_resultados, cmd_sim):
+def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, dir_Traces, dir_resultados, cmd_sim):
     # Valores a iterar
     cache_capacities = [8, 16, 32, 64, 128]
     cache_assocs = [1, 2, 4, 8, 16]
     block_sizes = [16, 32, 64, 128]
-    repl_policies = ['LRU', 'random']
+    repl_policies = ['l', 'r']
+    reference_values = []
 
     for capacity in cache_capacities:
         for assoc in cache_assocs:
@@ -37,17 +25,12 @@ def sim_cache_parameters(Traces, config_original, dir_champsim, archivo_config, 
                 for policy in repl_policies:
                     print(f"\tINFO: Modificando parametros cache_capacity = {capacity}, cache_assoc = {assoc}, block_size = {block_size}, repl_policy = {policy}")
                     # Se empieza por configurar el simulador
-                    chdir(dir_champsim) # Se va al directorio de champsim para editar cfg
+                    chdir(dir_sim_p1) # Se va al directorio de champsim para editar cfg
                     config_tmp = config_original
                     config_tmp['cache']['capacity'] = capacity
                     config_tmp['cache']['associativity'] = assoc
                     config_tmp['cache']['block_size'] = block_size
                     config_tmp['cache']['replacement_policy'] = policy
-                    archivo_cfg = open(archivo_config, "w")     # Se salva la configuracion
-                    json.dump(config_tmp, archivo_cfg)          # al archivo
-                    archivo_cfg.close()
-                    system(("./config.sh " + archivo_config))   # Se recupera la cfg orig
-                    system("make -j 6")                              # Se recompila el simulador
 
                     # A partir de aca inicia la simulacion
                     for j in Traces:
@@ -55,24 +38,146 @@ def sim_cache_parameters(Traces, config_original, dir_champsim, archivo_config, 
                         chdir(dir_Traces)
                         # Nombre de resultados y comando de ejecucion
                         nombre_dest = f"Sim_res_cache_capacity_{capacity}_assoc_{assoc}_block_size_{block_size}_policy_{policy}_trace_{j}.txt"
-                        cmd_sim_tmp = dir_champsim + "bin/"+ cmd_sim + j + " > " + nombre_dest
+                        cmd_sim_tmp = dir_sim_p1 + "bin/"+ cmd_sim + j + " > " + nombre_dest
                         # Se ejecuta la simulacion
                         system(cmd_sim_tmp)
 
 
-def restaurar_cfg(dir_champsim, archivo_config, config_original):
-    # Se restaura la configuracion original
-    chdir(dir_champsim) # Se va al directorio de champsim para editar cfg
-    system("rm champsim_config.json")
-    system("cp champsim_config.json.bak champsim_config.json")
+def sim_cache_size(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+    # Valores a iterar
+    cache_capacities = [8, 16, 32, 64, 128]
+    cache_assoc = 8
+    block_size = 64
+    repl_policy = 'l'
+
+    contador_PG = 0
+    contador_TF = 0
+    max_PG = len(cache_capacities)
+    max_TF = len(Traces)
+
+    for cache_capacity in cache_capacities:
+        print(f"\tINFO: Experimento 1 - Tamaño de la caché")
+        print("\tProgreso CC: ", contador_PG, "/", max_PG)
+        # Se va al directorio para simular
+        chdir(dir_resultados)
+
+        # A partir de aca inicia la simulacion
+        for trace_file in Traces:
+            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, trace = {trace_file}")
+            print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
+            # Trace file 
+            trace_file = dir_Traces + trace_file
+            # Nombre de resultados y comando de ejecucion
+            cmd_sim = f'python3 {dir_sim_p1} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -t "{trace_file}"'
+            # Se ejecuta la simulacion
+            system(cmd_sim)
+            contador_TF += 1
+        contador_PG += 1
+
+
+def sim_cache_assoc(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+    # Valores a iterar
+    cache_capacity = 32
+    cache_assocs = [1, 2, 4, 8, 16]
+    block_size = 64
+    repl_policy = 'l'
+
+    contador_PG = 0 # Cont Proceso general
+    contador_TF = 0 # Cont Trace Files
+    max_PG = len(cache_assocs)
+    max_TF = len(Traces)
+
+    for cache_assoc in cache_assocs:
+        print(f"\tINFO: Experimento 2 - Asociatividad de la Caché")
+        print("\tProgreso general: ", contador_PG, "/", max_PG)
+        # Se va al directorio para simular
+        chdir(dir_resultados)
+
+        # A partir de aca inicia la simulacion
+        for trace_file in Traces:
+            print(f"\t\tINFO: Simulando cache_assoc = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, trace = {trace_file}")
+            print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
+            # Trace file 
+            trace_file = dir_Traces + trace_file
+            # Nombre de resultados y comando de ejecucion
+            cmd_sim = f'python3 {dir_sim_p1} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -t "{trace_file}"'
+            # Se ejecuta la simulacion
+            system(cmd_sim)
+            contador_TF += 1
+        contador_PG += 1
+
+
+def sim_cache_block_size(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+    # Valores a iterar
+    cache_capacity = 32
+    cache_assoc = 8
+    block_sizes = [16, 32, 64, 128]
+    repl_policy = 'l'
+
+    contador_PG = 0 # Cont Proceso general
+    contador_TF = 0 # Cont Trace Files
+    max_PG = len(block_sizes)
+    max_TF = len(Traces)
+
+    for block_size in block_sizes:
+        print(f"\tINFO: Experimento 2 - Tamaño del bloque de la caché")
+        print("\tProgreso general: ", contador_PG, "/", max_PG)
+        # Se va al directorio para simular
+        chdir(dir_resultados)
+
+        # A partir de aca inicia la simulacion
+        for trace_file in Traces:
+            print(f"\t\tINFO: Simulando block_size = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, trace = {trace_file}")
+            print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
+            # Trace file 
+            trace_file = dir_Traces + trace_file
+            # Nombre de resultados y comando de ejecucion
+            cmd_sim = f'python3 {dir_sim_p1} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -t "{trace_file}"'
+            # Se ejecuta la simulacion
+            system(cmd_sim)
+            contador_TF += 1
+        contador_PG += 1
+
+
+def sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+    # Valores a iterar
+    cache_capacity = 32
+    cache_assoc = 8
+    block_size = 64
+    repl_policies = ['l', 'r']
+
+    contador_PG = 0 # Cont Proceso general
+    contador_TF = 0 # Cont Trace Files
+    max_PG = len(repl_policies)
+    max_TF = len(Traces)
+
+    for repl_policy in repl_policies:
+        print(f"\tINFO: Experimento 4 - Política de reemplazo del caché")
+        print("\tProgreso general: ", contador_PG, "/", max_PG)
+        # Se va al directorio para simular
+        chdir(dir_resultados)
+
+        # A partir de aca inicia la simulacion
+        for trace_file in Traces:
+            print(f"\t\tINFO: Simulando block_size = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, trace = {trace_file}")
+            print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
+            # Trace file 
+            trace_file = dir_Traces + trace_file
+            # Nombre de resultados y comando de ejecucion
+            cmd_sim = f'python3 {dir_sim_p1} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -t "{trace_file}"'
+            # Se ejecuta la simulacion
+            system(cmd_sim)
+            contador_TF += 1
+        contador_PG += 1
 
 
 # Declaracion de variables
-cmd_sim = "champsim --warmup_instructions 10000000 --simulation_instructions 100000000 "
-archivo_config = "champsim_config.json"
-dir_resultados = "/home/juan/UCR/Semestres/I S, 2024/IE0521 - Estructuras de computadoras digitales II/Tareas/tarea_3/Resultados/"
-dir_champsim = "/home/juan/Archivos/Software/ChampSim/"
-dir_Traces = "/home/juan/UCR/Semestres/I S, 2024/IE0521 - Estructuras de computadoras digitales II/Tareas/Traces/"
+dir_sim_p1     = "/home/juan/UCR/tarea4_IE0521/baseline_cache_I2024/base_parte1/cache_sim.py"
+dir_Traces     = "/home/juan/UCR/tarea4_IE0521/traces/"
+dir_res_CS     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Size/"
+dir_res_CA     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Assoc/"
+dir_res_CB     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Block/"
+dir_res_CR     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Replacement/"
 Traces = ["400.perlbench-41B.trace.txt.gz",
             "401.bzip2-226B.trace.txt.gz",
             "403.gcc-16B.trace.txt.gz",
@@ -102,33 +207,28 @@ Traces = ["400.perlbench-41B.trace.txt.gz",
             "483.xalancbmk-127B.trace.txt.gz"]
 
 # Inicio del programa
-global config_original
-config_original = obtener_orig_cfg(dir_champsim, archivo_config)
-
 t_0 = time.time()
 print("t_1/4. Inicio. ", "{:%Y-%b-%d %H:%M:%S}".format(datetime.datetime.now()))
 print()
-sim_cache_parameters(Traces, config_original, dir_champsim, archivo_config, dir_Traces, dir_resultados, cmd_sim)
-restaurar_cfg(dir_champsim, archivo_config, config_original)
+sim_cache_size(Traces, dir_sim_p1, dir_Traces, dir_res_CS)
 
 t_1 = time.time()
 print("t_2/4. Inicio. ", "{:%Y-%b-%d %H:%M:%S}".format(datetime.datetime.now()))
 print("\tTiempo utilizado en tarea t_1: ", t_1 - t_0)
 print()
-
-config_original = obtener_orig_cfg(dir_champsim, archivo_config)
-# No es necesario llamar a otras funciones de simulación ya que estamos centrados en los parámetros de caché
-restaurar_cfg(dir_champsim, archivo_config, config_original)
+sim_cache_assoc(Traces, dir_sim_p1, dir_Traces, dir_res_CA)
 
 t_2 = time.time()
 print("t_3/4. Inicio. ", "{:%Y-%b-%d %H:%M:%S}".format(datetime.datetime.now()))
 print("\tTiempo utilizado en tarea t_2: ", t_2 - t_1)
 print()
+sim_cache_block_size(Traces, dir_sim_p1, dir_Traces, dir_res_CB)
 
 t_3 = time.time()
 print("t_4/4. Inicio. ", "{:%Y-%b-%d %H:%M:%S}".format(datetime.datetime.now()))
 print("\tTiempo utilizado en tarea t_3: ", t_3 - t_2)
 print()
+sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_res_CR)
 
 t_4 = time.time()
 print("\tTiempo utilizado en tarea t_4: ", t_4 - t_3)

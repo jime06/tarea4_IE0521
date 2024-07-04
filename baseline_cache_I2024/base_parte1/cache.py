@@ -43,6 +43,7 @@ class cache:
         miss_rate = "{:.3f}".format(miss_rate)
         result_str = str(self.total_misses)+","+miss_rate+"%"
         print(result_str)
+        return [self.total_misses, miss_rate]
 
     def access(self, access_type, address):
         # Antes que nada, se obtiene el índice y la etiqueta que buscar
