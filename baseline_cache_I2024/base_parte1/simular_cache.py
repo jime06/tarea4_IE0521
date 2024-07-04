@@ -10,6 +10,9 @@ realizado en la tarea 4
 import cache
 import cache_sim
 
+#también hay que importar los traces
+
+
 #Ahora, con la función eval se evalúan los parámetros requeridos para cada cosa
 cache_capacity_8 = "cache.__init__(8,8,64,LRU)"
 cache_capacity_16 = "cache.__init__(16,8,64,LRU)" 
