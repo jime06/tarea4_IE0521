@@ -5,7 +5,8 @@ Este script se encarga de ejecutar y salvar las pruebas de champsim de la
 tarea 3 de IE0521.
 '''
 # Bibliotecas
-import json
+import cache
+import cache_sim
 import time
 import datetime
 from os import system, getcwd, chdir, listdir
