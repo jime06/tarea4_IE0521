@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+16, 8, 64, l, 473.astar-153B.trace.txt.gz, 4640, 0.464

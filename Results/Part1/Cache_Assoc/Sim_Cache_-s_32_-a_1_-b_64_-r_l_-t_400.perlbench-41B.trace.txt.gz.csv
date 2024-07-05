@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 1, 64, l, 400.perlbench-41B.trace.txt.gz, 12824, 1.282

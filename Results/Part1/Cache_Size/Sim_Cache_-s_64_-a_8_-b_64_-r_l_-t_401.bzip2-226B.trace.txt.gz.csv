@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+64, 8, 64, l, 401.bzip2-226B.trace.txt.gz, 15453, 1.545

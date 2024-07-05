@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 4, 64, l, 481.wrf-1170B.trace.txt.gz, 3876, 0.388

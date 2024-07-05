@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 1, 64, l, 444.namd-120B.trace.txt.gz, 13666, 1.367

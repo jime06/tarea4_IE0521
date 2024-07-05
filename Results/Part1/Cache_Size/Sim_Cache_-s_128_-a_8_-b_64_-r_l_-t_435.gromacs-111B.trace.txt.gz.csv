@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+128, 8, 64, l, 435.gromacs-111B.trace.txt.gz, 3103, 0.310

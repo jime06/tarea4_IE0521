@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 64, r, 416.gamess-875B.trace.txt.gz, 11785, 1.179

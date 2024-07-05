@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+8, 8, 64, l, 456.hmmer-191B.trace.txt.gz, 11317, 1.132

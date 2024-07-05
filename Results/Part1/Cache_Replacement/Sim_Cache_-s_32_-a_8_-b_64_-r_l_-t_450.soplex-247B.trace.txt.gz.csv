@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 64, l, 450.soplex-247B.trace.txt.gz, 67734, 6.773

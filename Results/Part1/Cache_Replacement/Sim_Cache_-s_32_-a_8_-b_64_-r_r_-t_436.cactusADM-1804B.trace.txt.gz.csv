@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 64, r, 436.cactusADM-1804B.trace.txt.gz, 10098, 1.010

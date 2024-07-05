@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 128, l, 464.h264ref-30B.trace.txt.gz, 311, 0.031

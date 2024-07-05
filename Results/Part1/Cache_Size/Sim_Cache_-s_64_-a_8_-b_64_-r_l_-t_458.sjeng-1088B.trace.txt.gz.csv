@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+64, 8, 64, l, 458.sjeng-1088B.trace.txt.gz, 1742, 0.174

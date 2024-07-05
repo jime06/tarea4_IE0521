@@ -60,6 +60,7 @@ def sim_cache_size(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print("\tProgreso CC: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
         chdir(dir_resultados)
+        contador_TF = 0
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
@@ -92,6 +93,7 @@ def sim_cache_assoc(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print("\tProgreso general: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
         chdir(dir_resultados)
+        contador_TF = 0
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
@@ -120,10 +122,11 @@ def sim_cache_block_size(Traces, dir_sim_p1, dir_Traces, dir_resultados):
     max_TF = len(Traces)
 
     for block_size in block_sizes:
-        print(f"\tINFO: Experimento 2 - Tamaño del bloque de la caché")
+        print(f"\tINFO: Experimento 3 - Tamaño del bloque de la caché")
         print("\tProgreso general: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
         chdir(dir_resultados)
+        contador_TF = 0
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
@@ -156,6 +159,7 @@ def sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_resultados)
         print("\tProgreso general: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
         chdir(dir_resultados)
+        contador_TF = 0
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:

@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 16, l, 459.GemsFDTD-1169B.trace.txt.gz, 69706, 6.971

@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+64, 8, 64, l, 471.omnetpp-188B.trace.txt.gz, 17547, 1.755

@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 16, 64, l, 482.sphinx3-1100B.trace.txt.gz, 11930, 1.193

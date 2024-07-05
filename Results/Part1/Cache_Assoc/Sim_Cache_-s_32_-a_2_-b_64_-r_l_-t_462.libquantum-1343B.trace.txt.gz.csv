@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 2, 64, l, 462.libquantum-1343B.trace.txt.gz, 17649, 1.765

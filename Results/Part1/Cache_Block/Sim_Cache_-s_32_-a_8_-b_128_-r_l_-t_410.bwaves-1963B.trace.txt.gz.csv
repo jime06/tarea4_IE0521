@@ -1,0 +1,2 @@
+cache_capacity, cache_assoc, block_size, repl_policy, TRACE_FILE, total_misses, miss_rate
+32, 8, 128, l, 410.bwaves-1963B.trace.txt.gz, 11265, 1.127
