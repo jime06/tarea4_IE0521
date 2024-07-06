@@ -144,7 +144,7 @@ def sim_cache_L2(Traces, dir_sim_p2, dir_Traces, dir_res_L2):
             # Trace file 
             trace_file = dir_Traces + trace_file
             # Nombre de resultados y comando de ejecucion
-            cmd_sim = f'python3 {dir_sim_p2} --l1_s "{l1_cap}" --l1_a "{l1_assoc}" --l2_s "{l2_cap}" --l2_a{l2_assoc} -b "{block_size}" -t "{trace_file}"'
+            cmd_sim = f'python3 {dir_sim_p2} --l1_s "{l1_cap}" --l1_a "{l1_assoc}" --l2_s "{l2_cap}" -b "{block_size}" -t "{trace_file}"'
 
             # Se ejecuta la simulacion
             system(cmd_sim)
