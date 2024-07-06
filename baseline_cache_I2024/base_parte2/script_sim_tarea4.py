@@ -45,7 +45,7 @@ def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, di
 
 def sim_cache_L1(Traces, dir_sim_p1, dir_Traces, dir_resultados):
     # Valores a iterar
-    cache_capacities = 32
+    cache_capacity = 32
     cache_assoc = 8
     block_size = 64
     repl_policy = 'l'
@@ -53,27 +53,27 @@ def sim_cache_L1(Traces, dir_sim_p1, dir_Traces, dir_resultados):
 
     contador_PG = 0
     contador_TF = 0
-    max_PG = len(cache_capacities)
+    #max_PG = cache_capacities
     max_TF = len(Traces)
 
-    for cache_capacity in cache_capacities:
-        print(f"\tINFO: Experimento 1 - Caché de un único nivel")
-        print("\tProgreso CC: ", contador_PG, "/", max_PG)
-        # Se va al directorio para simular
-        chdir(dir_resultados)
-        contador_TF = 0
+    #for cache_capacity in cache_capacities:
+    print(f"\tINFO: Experimento 1 - Caché de un único nivel")
+    #print("\tProgreso CC: ", contador_PG, "/", max_PG)
+    # Se va al directorio para simular
+    chdir(dir_res_L1)
+    contador_TF = 0
 
-        # A partir de aca inicia la simulacion
-        for trace_file in Traces:
-            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
-            print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
-            # Trace file 
-            trace_file = dir_Traces + trace_file
-            # Nombre de resultados y comando de ejecucion
-            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
-            # Se ejecuta la simulacion
-            system(cmd_sim)
-            contador_TF += 1
+    # A partir de aca inicia la simulacion
+    for trace_file in Traces:
+        print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
+        print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
+        # Trace file 
+        trace_file = dir_Traces + trace_file
+        # Nombre de resultados y comando de ejecucion
+        cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
+        # Se ejecuta la simulacion
+        system(cmd_sim)
+        contador_TF += 1
         contador_PG += 1
 
 
@@ -96,7 +96,7 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print(f"\tINFO: Experimento 2 - Segundo nivel de cache")
         print("\tProgreso CC: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
-        chdir(dir_resultados)
+        chdir(dir_res_L2)
         contador_TF = 0
 
         # A partir de aca inicia la simulacion
@@ -117,7 +117,7 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print(f"\tINFO: Experimento 2 - Segundo nivel de caché")
         print("\tProgreso general: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
-        chdir(dir_resultados)
+        chdir(dir_res_L2)
         contador_TF = 0
 
         # A partir de aca inicia la simulacion
@@ -153,7 +153,7 @@ def sim_cache_L3(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print(f"\tINFO: Experimento 3 - Tercer nivel de cache")
         print("\tProgreso CC: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
-        chdir(dir_resultados)
+        chdir(dir_res_L3)
         contador_TF = 0
 
         # A partir de aca inicia la simulacion
@@ -174,7 +174,7 @@ def sim_cache_L3(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         print(f"\tINFO: Experimento 3 - Tercer nivel de cache")
         print("\tProgreso general: ", contador_PG, "/", max_PG)
         # Se va al directorio para simular
-        chdir(dir_resultados)
+        chdir(dir_res_L3)
         contador_TF = 0
 
         # A partir de aca inicia la simulacion
@@ -227,9 +227,9 @@ def sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_resultados)
 # Declaracion de variables
 dir_sim_p2     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/baseline_cache_I2024/base_parte2/cache_sim.py"
 dir_Traces     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/traces/"
-dir_res_L1     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_Size/"
-dir_res_L2     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_Assoc/"
-dir_res_L3     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_Block/"
+dir_res_L1     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L1/"
+dir_res_L2     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L2/"
+dir_res_L3     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L3/"
 #dir_res_CR     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Replacement/"
 Traces = ["400.perlbench-41B.trace.txt.gz",
             "401.bzip2-226B.trace.txt.gz",
