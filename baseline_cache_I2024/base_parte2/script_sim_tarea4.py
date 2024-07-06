@@ -17,7 +17,7 @@ def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, di
     cache_assocs = [1, 2, 4, 8, 16]
     block_sizes = [16, 32, 64, 128]
     repl_policies = ['l', 'r']
-    reference_values = []
+    cache_level = [1,2,3]
 
     for capacity in cache_capacities:
         for assoc in cache_assocs:
@@ -25,12 +25,13 @@ def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, di
                 for policy in repl_policies:
                     print(f"\tINFO: Modificando parametros cache_capacity = {capacity}, cache_assoc = {assoc}, block_size = {block_size}, repl_policy = {policy}")
                     # Se empieza por configurar el simulador
-                    chdir(dir_sim_p1) # Se va al directorio de champsim para editar cfg
+                    chdir(dir_sim_p2) # Se va al directorio de champsim para editar cfg
                     config_tmp = config_original
                     config_tmp['cache']['capacity'] = capacity
                     config_tmp['cache']['associativity'] = assoc
                     config_tmp['cache']['block_size'] = block_size
                     config_tmp['cache']['replacement_policy'] = policy
+                    config_tmp['cache']['cache_level'] = cache_level
 
                     # A partir de aca inicia la simulacion
                     for j in Traces:
@@ -101,12 +102,12 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_resultados):
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
-            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
+            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assocs = {cache_assocs}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
             print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
             # Trace file 
             trace_file = dir_Traces + trace_file
             # Nombre de resultados y comando de ejecucion
-            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
+            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assocs}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
             # Se ejecuta la simulacion
             system(cmd_sim)
             contador_TF += 1
@@ -158,12 +159,12 @@ def sim_cache_L3(Traces, dir_sim_p1, dir_Traces, dir_resultados):
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
-            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assoc = {cache_assoc}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
+            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assocs = {cache_assocs}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
             print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
             # Trace file 
             trace_file = dir_Traces + trace_file
             # Nombre de resultados y comando de ejecucion
-            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assoc}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
+            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assocs}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
             # Se ejecuta la simulacion
             system(cmd_sim)
             contador_TF += 1
@@ -225,11 +226,11 @@ def sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_resultados)
 '''
 
 # Declaracion de variables
-dir_sim_p2     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/baseline_cache_I2024/base_parte2/cache_sim.py"
-dir_Traces     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/traces/"
-dir_res_L1     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L1/"
-dir_res_L2     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L2/"
-dir_res_L3     = "/home/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L3/"
+dir_sim_p2     = "/home/jime/Documents/Estructuras_2/Semana_14/tarea4_IE0521/baseline_cache_I2024/base_parte2/cache_sim.py"
+dir_Traces     = "/home/jime/Documents/Estructuras_2/Semana_14/tarea4_IE0521/traces/"
+dir_res_L1     = "/home/jime/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L1/"
+dir_res_L2     = "/home/jime/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L2/"
+dir_res_L3     = "/home/jime/Documents/Estructuras_2/Semana_14/tarea4_IE0521/Results/Part2/Cache_L3/"
 #dir_res_CR     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Replacement/"
 Traces = ["400.perlbench-41B.trace.txt.gz",
             "401.bzip2-226B.trace.txt.gz",
