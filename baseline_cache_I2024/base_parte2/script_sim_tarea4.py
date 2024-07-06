@@ -86,6 +86,16 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_res_L2):
     repl_policy = 'l'
     cache_level = 2
 
+    # Esto es lo que hay de declarar, hay una: la que se va a ciclar que no se declara, sino que se pone un vector de posibilidades.
+    #l1_cap = 
+    #l1_assoc = 
+    #l2_cap = 
+    #l2_assoc = 
+    #l3_cap = 
+    #l3_asso = 
+    #block_size = 
+    #repl_policy = 
+
     contador_PG = 0 # Cont Proceso general
     contador_TF = 0 # Cont Trace Files
     max_PG = len(cache_assocs)
@@ -102,12 +112,22 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_res_L2):
 
         # A partir de aca inicia la simulacion
         for trace_file in Traces:
-            print(f"\t\tINFO: Simulando cache_capacity = {cache_capacity}, cache_assocs = {cache_assocs}, block_size = {block_size}, repl_policy = {repl_policy}, cache_level = {cache_level}, trace = {trace_file}")
+            # TODO 's:
+            #   Copiar todos los prints de estado y los cmd_sim al resto de los experimentos
+            #   Configurar las variables de modo que existan las que vienen entre los curly brackets
+            # antes de que llegue al ciclo -> todas las vairbles tiene que estar declaradas antes de que 
+            # empiece el experimento
+            #   Confiruar un experimento por función: en cada experimento se itera sobre una variable: así,
+            # se tiene un vector con nombre en plural y en el for se tiene el nombre en singular: l1_cache_assocs
+            # es un vector y l1_cache_assoc se define en el for
+            #   Probar, debuggear y dejar subido en git
+            print(f"\t\tINFO: Simulando  --L1_s {l1_cap} --L1_a {l1_assoc} --L2_s {l2_cap} --L2_a {l2_assoc} --L3_s {l3_cap} --L3_a {l3_assoc} -b {block_size} -r {repl_policy} -t {trace_file}")
             print("\t\tProgreso Traces: ", contador_TF, "/", max_TF)
             # Trace file 
             trace_file = dir_Traces + trace_file
             # Nombre de resultados y comando de ejecucion
-            cmd_sim = f'python3 {dir_sim_p2} -s "{cache_capacity}" -a "{cache_assocs}" -b "{block_size}" -r "{repl_policy}" -l"{cache_level}" -t "{trace_file}"'
+            cmd_sim = f'python3 {dir_sim_p2} --L1_s "{l1_cap}" --L1_a "{l1_assoc}" --L2_s "{l2_cap}" --L2_a "{l2_assoc}" --L3_s "{l3_cap}" --L3_a "{l3_assoc}" -b "{block_size}" -r "{repl_policy}" -t "{trace_file}"'
+
             # Se ejecuta la simulacion
             system(cmd_sim)
             contador_TF += 1
