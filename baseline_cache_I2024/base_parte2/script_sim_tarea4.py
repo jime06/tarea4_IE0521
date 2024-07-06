@@ -44,7 +44,7 @@ def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, di
                         system(cmd_sim_tmp)
 
 
-def sim_cache_L1(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+def sim_cache_L1(Traces, dir_sim_p1, dir_Traces, dir_res_L1):
     # Valores a iterar
     cache_capacity = 32
     cache_assoc = 8
@@ -78,7 +78,7 @@ def sim_cache_L1(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         contador_PG += 1
 
 
-def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_res_L2):
     # Valores a iterar
     cache_capacities = [64,128]
     cache_assocs = [8, 16]
@@ -135,7 +135,7 @@ def sim_cache_L2(Traces, dir_sim_p1, dir_Traces, dir_resultados):
         contador_PG += 1
 
 
-def sim_cache_L3(Traces, dir_sim_p1, dir_Traces, dir_resultados):
+def sim_cache_L3(Traces, dir_sim_p1, dir_Traces, dir_res_L3):
     # Valores a iterar
     cache_capacities = [512, 1024]
     cache_assocs = [16, 32]
