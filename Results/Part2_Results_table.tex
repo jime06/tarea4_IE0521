@@ -1,0 +1,570 @@
+\begin{table}[H]
+\begin{center}
+\caption{Reultos de la simulación de la caché multinivel con L1.}
+\label{tab:R.L2.1}
+\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{|c|c|}
+	Trace file	&	AMAT (ciclos)	\\
+	\hline
+	400.perlbench-41B.trace.txt.gz	&	3999072	\\
+	\hline
+	401.bzip2-226B.trace.txt.gz	&	3925503	\\
+	\hline
+	403.gcc-16B.trace.txt.gz	&	3914526	\\
+	\hline
+	410.bwaves-1963B.trace.txt.gz	&	3936543.5	\\
+	\hline
+	416.gamess-875B.trace.txt.gz	&	3953670.5	\\
+	\hline
+	429.mcf-184B.trace.txt.gz	&	3576346.5	\\
+	\hline
+	433.milc-127B.trace.txt.gz	&	3912772	\\
+	\hline
+	435.gromacs-111B.trace.txt.gz	&	3983220.5	\\
+	\hline
+	436.cactusADM-1804B.trace.txt.gz	&	3982841	\\
+	\hline
+	437.leslie3d-134B.trace.txt.gz	&	3984326.5	\\
+	\hline
+	444.namd-120B.trace.txt.gz	&	3982746.5	\\
+	\hline
+	445.gobmk-17B.trace.txt.gz	&	3954942.5	\\
+	\hline
+	450.soplex-247B.trace.txt.gz	&	3732450.5	\\
+	\hline
+	453.povray-887B.trace.txt.gz	&	3901246	\\
+	\hline
+	454.calculix-104B.trace.txt.gz	&	3998341	\\
+	\hline
+	456.hmmer-191B.trace.txt.gz	&	3983817	\\
+	\hline
+	458.sjeng-1088B.trace.txt.gz	&	3972650	\\
+	\hline
+	459.GemsFDTD-1169B.trace.txt.gz	&	3928987	\\
+	\hline
+	462.libquantum-1343B.trace.txt.gz	&	3930286.5	\\
+	\hline
+	464.h264ref-30B.trace.txt.gz	&	3997808	\\
+	\hline
+	465.tonto-1769B.trace.txt.gz	&	3888851	\\
+	\hline
+	470.lbm-1274B.trace.txt.gz	&	3858325.5	\\
+	\hline
+	471.omnetpp-188B.trace.txt.gz	&	3889514.5	\\
+	\hline
+	473.astar-153B.trace.txt.gz	&	3982426.5	\\
+	\hline
+	481.wrf-1170B.trace.txt.gz	&	3984855.5	\\
+	\hline
+	482.sphinx3-1100B.trace.txt.gz	&	3952825	\\
+	\hline
+	483.xalancbmk-127B.trace.txt.gz	&	3918464	\\
+	\hline
+	\hline
+	Media geométrica	&	3925900.72288113	\\
+	\hline
+	\end{tabular}%
+}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\caption{Resultados de la simulación del caché multinivel con L2}
+\label{tab:R.L2.2}
+\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Trace file	&	Tamaño L2	&	Asociatividad L2	&	AMAT (ciclos)	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	64	&	8	&	4095037.812	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	64	&	8	&	11353439.503	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	64	&	8	&	12386777.514	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	64	&	8	&	10279570.161	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	64	&	8	&	8629960.511	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	64	&	8	&	42221347.5375	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	64	&	8	&	12551068.576	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	64	&	8	&	5676701	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	64	&	8	&	5712252.012	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	64	&	8	&	5565905.6205	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	64	&	8	&	5728572.2065	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	64	&	8	&	8503814.5515	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	64	&	8	&	29167761.154	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	64	&	8	&	13777862.25	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	64	&	8	&	4166250.658	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	64	&	8	&	5618197.95	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	64	&	8	&	6735542.348	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	64	&	8	&	10994004.149	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	64	&	8	&	10866359.6725	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	64	&	8	&	4221657.248	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	64	&	8	&	14830670.714	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	64	&	8	&	17696345.5685	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	64	&	8	&	14882254.5315	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	64	&	8	&	5755672.29	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	64	&	8	&	5512406.7635	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	64	&	8	&	8674631.728	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	64	&	8	&	12005166.464	\\
+		\hline
+		\hline
+		Media	geométrica	&		&	&	9176227.13863014	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	64	&	16	&	4095037.812	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	64	&	16	&	11348098.351	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	64	&	16	&	12386828.368	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	64	&	16	&	10287421.963	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	64	&	16	&	8637007.895	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	64	&	16	&	42244690.5	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	64	&	16	&	12551068.576	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	64	&	16	&	5676835.3	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	64	&	16	&	5711502.711	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	64	&	16	&	5565905.6205	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	64	&	16	&	5728758.587	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	64	&	16	&	8505815.8655	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	64	&	16	&	29168617.9385	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	64	&	16	&	13789623.5	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	64	&	16	&	4166250.658	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	64	&	16	&	5618228.7	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	64	&	16	&	6736004.258	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	64	&	16	&	10994004.149	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	64	&	16	&	10866359.6725	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	64	&	16	&	4221657.248	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	64	&	16	&	14830670.714	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	64	&	16	&	17696345.5685	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	64	&	16	&	14891467.8495	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	64	&	16	&	5755886.5575	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	64	&	16	&	5512470.3415	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	64	&	16	&	8674702.771	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	64	&	16	&	12005166.464	\\
+		\hline
+		\hline
+		Media	geométrica	&		&	&	9177402.7721011	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	128	&	8	&	4095037.812	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	128	&	8	&	11433143.749	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	128	&	8	&	12387093.458	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	128	&	8	&	10289491.779	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	128	&	8	&	8639597.879	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	128	&	8	&	42528785.025	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	128	&	8	&	12551068.576	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	128	&	8	&	5677798.775	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	128	&	8	&	5713683.344	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	128	&	8	&	5565905.6205	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	128	&	8	&	5728817.3635	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	128	&	8	&	8511886.556	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	128	&	8	&	29344814.147	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	128	&	8	&	13871181	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	128	&	8	&	4166250.658	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	128	&	8	&	5618818.28	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	128	&	8	&	6736969.252	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	128	&	8	&	10994004.149	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	128	&	8	&	10866359.6725	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	128	&	8	&	4221657.248	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	128	&	8	&	14830670.714	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	128	&	8	&	17867190.7915	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	128	&	8	&	14893688.6675	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	128	&	8	&	5757166.3775	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	128	&	8	&	5512488.534	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	128	&	8	&	8677952.242	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	128	&	8	&	12005182.976	\\
+		\hline
+		\hline
+		Media	geométrica	&		&	&	9190495.8607761	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	128	&	16	&	4095037.812	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	128	&	16	&	11439416.585	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	128	&	16	&	12387110.77	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	128	&	16	&	10290595.788	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	128	&	16	&	8640218.9825	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	128	&	16	&	42540008.7375	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	128	&	16	&	12551068.576	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	128	&	16	&	5677825.7625	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	128	&	16	&	5713731.301	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	128	&	16	&	5565905.6205	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	128	&	16	&	5728817.3635	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	128	&	16	&	8512012.6365	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	128	&	16	&	29349683.934	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	128	&	16	&	13879929.75	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	128	&	16	&	4166250.658	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	128	&	16	&	5618871.785	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	128	&	16	&	6737037.414	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	128	&	16	&	10994004.149	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	128	&	16	&	10866359.6725	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	128	&	16	&	4221657.248	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	128	&	16	&	14830670.714	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	128	&	16	&	17857484.3695	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	128	&	16	&	14893954.3825	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	128	&	16	&	5757166.3775	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	128	&	16	&	5512488.534	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	128	&	16	&	8677989.853	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	128	&	16	&	12005182.976	\\
+		\hline
+		\hline
+		Media	geométrica	&		&	&	9190943.74673894	\\
+		\hline
+	\end{tabular}%
+}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+\caption{Resultados de la simulación del caché multinivel con L3}
+\label{tab:R.L2.3}
+\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Trace file	&	Capacidad L3	&	Asociatividad L3	&	AMAT (ciclos)	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	512	&	16	&	4320104.864268	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	512	&	16	&	53483602.232789	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	512	&	16	&	300373570.209178	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	512	&	16	&	132230302.196926	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	512	&	16	&	25396472.7370625	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	512	&	16	&	5185454093.45663	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	512	&	16	&	315884151.828736	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	512	&	16	&	16189021.702	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	512	&	16	&	16576085.724025	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	512	&	16	&	18148272.1826665	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	512	&	16	&	11814540.9195385	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	512	&	16	&	27266303.7446505	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	512	&	16	&	1905753963.19603	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	512	&	16	&	59753896.32875	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	512	&	16	&	4607905.123924	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	512	&	16	&	15636517.123125	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	512	&	16	&	17201361.268106	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	512	&	16	&	213211412.972875	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	512	&	16	&	208353011.004562	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	512	&	16	&	4857462.699008	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	512	&	16	&	498043643.097323	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	512	&	16	&	518880375.030624	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	512	&	16	&	307950864.699926	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	512	&	16	&	15914515.27836	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	512	&	16	&	14892968.382904	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	512	&	16	&	89783832.4846	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	512	&	16	&	278509515.133952	\\
+		\hline
+		\hline
+		Media geométrica	&	&		&	64922463.4317292	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	512	&	32	&	4320104.864268	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	512	&	32	&	53483602.232789	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	512	&	32	&	300373570.209178	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	512	&	32	&	132230302.196926	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	512	&	32	&	25396472.7370625	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	512	&	32	&	5187331925.87738	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	512	&	32	&	315884151.828736	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	512	&	32	&	16189021.702	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	512	&	32	&	16576085.724025	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	512	&	32	&	18148272.1826665	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	512	&	32	&	11814540.9195385	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	512	&	32	&	27266303.7446505	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	512	&	32	&	1905859871.96037	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	512	&	32	&	59753896.32875	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	512	&	32	&	4607905.123924	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	512	&	32	&	15636517.123125	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	512	&	32	&	17201361.268106	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	512	&	32	&	213211412.972875	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	512	&	32	&	208353011.004562	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	512	&	32	&	4857462.699008	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	512	&	32	&	497944695.896894	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	512	&	32	&	518880375.030624	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	512	&	32	&	307950864.699926	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	512	&	32	&	15914515.27836	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	512	&	32	&	14892968.382904	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	512	&	32	&	89785422.51649	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	512	&	32	&	278509515.133952	\\
+		\hline
+		\hline
+		Media geométrica	&	&		&	64923032.488244	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	1024	&	16	&	4320104.864268	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	1024	&	16	&	53483602.232789	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	1024	&	16	&	300373847.157898	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	1024	&	16	&	132230302.196926	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	1024	&	16	&	25396472.7370625	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	1024	&	16	&	5240194552.06875	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	1024	&	16	&	315884151.828736	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	1024	&	16	&	16189021.702	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	1024	&	16	&	16576085.724025	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	1024	&	16	&	18148272.1826665	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	1024	&	16	&	11814540.9195385	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	1024	&	16	&	27266303.7446505	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	1024	&	16	&	1922144314.59783	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	1024	&	16	&	59753896.32875	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	1024	&	16	&	4607905.123924	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	1024	&	16	&	15636517.123125	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	1024	&	16	&	17201361.268106	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	1024	&	16	&	213211412.972875	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	1024	&	16	&	208353011.004562	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	1024	&	16	&	4857462.699008	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	1024	&	16	&	500166765.740342	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	1024	&	16	&	518880375.030624	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	1024	&	16	&	307955271.370629	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	1024	&	16	&	15914555.00796	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	1024	&	16	&	14892968.382904	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	1024	&	16	&	89786724.32872	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	1024	&	16	&	278509515.133952	\\
+		\hline
+		\hline
+		Media geométrica	&	&		&	64978678.6104105	\\
+		\hline
+		400.perlbench-41B.trace.txt.gz	&	1024	&	32	&	4320104.864268	\\
+		\hline
+		401.bzip2-226B.trace.txt.gz	&	1024	&	32	&	53483602.232789	\\
+		\hline
+		403.gcc-16B.trace.txt.gz	&	1024	&	32	&	300373847.157898	\\
+		\hline
+		410.bwaves-1963B.trace.txt.gz	&	1024	&	32	&	132230302.196926	\\
+		\hline
+		416.gamess-875B.trace.txt.gz	&	1024	&	32	&	25396472.7370625	\\
+		\hline
+		429.mcf-184B.trace.txt.gz	&	1024	&	32	&	5240855066.85225	\\
+		\hline
+		433.milc-127B.trace.txt.gz	&	1024	&	32	&	315884151.828736	\\
+		\hline
+		435.gromacs-111B.trace.txt.gz	&	1024	&	32	&	16189021.702	\\
+		\hline
+		436.cactusADM-1804B.trace.txt.gz	&	1024	&	32	&	16576085.724025	\\
+		\hline
+		437.leslie3d-134B.trace.txt.gz	&	1024	&	32	&	18148272.1826665	\\
+		\hline
+		444.namd-120B.trace.txt.gz	&	1024	&	32	&	11814540.9195385	\\
+		\hline
+		445.gobmk-17B.trace.txt.gz	&	1024	&	32	&	27266303.7446505	\\
+		\hline
+		450.soplex-247B.trace.txt.gz	&	1024	&	32	&	1922539603.20754	\\
+		\hline
+		453.povray-887B.trace.txt.gz	&	1024	&	32	&	59753896.32875	\\
+		\hline
+		454.calculix-104B.trace.txt.gz	&	1024	&	32	&	4607905.123924	\\
+		\hline
+		456.hmmer-191B.trace.txt.gz	&	1024	&	32	&	15636517.123125	\\
+		\hline
+		458.sjeng-1088B.trace.txt.gz	&	1024	&	32	&	17201361.268106	\\
+		\hline
+		459.GemsFDTD-1169B.trace.txt.gz	&	1024	&	32	&	213211412.972875	\\
+		\hline
+		462.libquantum-1343B.trace.txt.gz	&	1024	&	32	&	208353011.004562	\\
+		\hline
+		464.h264ref-30B.trace.txt.gz	&	1024	&	32	&	4857462.699008	\\
+		\hline
+		465.tonto-1769B.trace.txt.gz	&	1024	&	32	&	500166765.740342	\\
+		\hline
+		470.lbm-1274B.trace.txt.gz	&	1024	&	32	&	518880375.030624	\\
+		\hline
+		471.omnetpp-188B.trace.txt.gz	&	1024	&	32	&	307955271.370629	\\
+		\hline
+		473.astar-153B.trace.txt.gz	&	1024	&	32	&	15914555.00796	\\
+		\hline
+		481.wrf-1170B.trace.txt.gz	&	1024	&	32	&	14892968.382904	\\
+		\hline
+		482.sphinx3-1100B.trace.txt.gz	&	1024	&	32	&	89786724.32872	\\
+		\hline
+		483.xalancbmk-127B.trace.txt.gz	&	1024	&	32	&	278509515.133952	\\
+		\hline
+		\hline
+		Media geométrica	&	&		&	64979476.8145601	\\
+		\hline
+	\end{tabular}%
+}
+\end{center}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

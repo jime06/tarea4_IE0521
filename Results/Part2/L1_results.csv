@@ -1,28 +1,29 @@
-TRACE_FILE,AMAT_hacia_l1
-400.perlbench-41B.trace.txt.gz,3999072.0
-401.bzip2-226B.trace.txt.gz,3925503.0
-403.gcc-16B.trace.txt.gz,3914526.0
-410.bwaves-1963B.trace.txt.gz,3936543.5
-416.gamess-875B.trace.txt.gz,3953670.5
-429.mcf-184B.trace.txt.gz,3576346.5
-433.milc-127B.trace.txt.gz,3912772.0
-435.gromacs-111B.trace.txt.gz,3983220.5
-436.cactusADM-1804B.trace.txt.gz,3982841.0
-437.leslie3d-134B.trace.txt.gz,3984326.5
-444.namd-120B.trace.txt.gz,3982746.5
-445.gobmk-17B.trace.txt.gz,3954942.5
-450.soplex-247B.trace.txt.gz,3732450.5
-453.povray-887B.trace.txt.gz,3901246.0
-454.calculix-104B.trace.txt.gz,3998341.0
-456.hmmer-191B.trace.txt.gz,3983817.0
-458.sjeng-1088B.trace.txt.gz,3972650.0
-459.GemsFDTD-1169B.trace.txt.gz,3928987.0
-462.libquantum-1343B.trace.txt.gz,3930286.5
-464.h264ref-30B.trace.txt.gz,3997808.0
-465.tonto-1769B.trace.txt.gz,3888851.0
-470.lbm-1274B.trace.txt.gz,3858325.5
-471.omnetpp-188B.trace.txt.gz,3889514.5
-473.astar-153B.trace.txt.gz,3982426.5
-481.wrf-1170B.trace.txt.gz,3984855.5
-482.sphinx3-1100B.trace.txt.gz,3952825.0
-483.xalancbmk-127B.trace.txt.gz,3918464.0
+"TRACE_FILE" "AMAT_hacia_l1"
+"400.perlbench-41B.trace.txt.gz" 3999072
+"401.bzip2-226B.trace.txt.gz" 3925503
+"403.gcc-16B.trace.txt.gz" 3914526
+"410.bwaves-1963B.trace.txt.gz" 3936543.5
+"416.gamess-875B.trace.txt.gz" 3953670.5
+"429.mcf-184B.trace.txt.gz" 3576346.5
+"433.milc-127B.trace.txt.gz" 3912772
+"435.gromacs-111B.trace.txt.gz" 3983220.5
+"436.cactusADM-1804B.trace.txt.gz" 3982841
+"437.leslie3d-134B.trace.txt.gz" 3984326.5
+"444.namd-120B.trace.txt.gz" 3982746.5
+"445.gobmk-17B.trace.txt.gz" 3954942.5
+"450.soplex-247B.trace.txt.gz" 3732450.5
+"453.povray-887B.trace.txt.gz" 3901246
+"454.calculix-104B.trace.txt.gz" 3998341
+"456.hmmer-191B.trace.txt.gz" 3983817
+"458.sjeng-1088B.trace.txt.gz" 3972650
+"459.GemsFDTD-1169B.trace.txt.gz" 3928987
+"462.libquantum-1343B.trace.txt.gz" 3930286.5
+"464.h264ref-30B.trace.txt.gz" 3997808
+"465.tonto-1769B.trace.txt.gz" 3888851
+"470.lbm-1274B.trace.txt.gz" 3858325.5
+"471.omnetpp-188B.trace.txt.gz" 3889514.5
+"473.astar-153B.trace.txt.gz" 3982426.5
+"481.wrf-1170B.trace.txt.gz" 3984855.5
+"482.sphinx3-1100B.trace.txt.gz" 3952825
+"483.xalancbmk-127B.trace.txt.gz" 3918464
+"Geomean" 3925900.72288113
