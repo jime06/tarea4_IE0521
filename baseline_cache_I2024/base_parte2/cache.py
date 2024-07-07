@@ -42,9 +42,9 @@ class cache:
         print("Resultados de la simulación ", end="")
         miss_rate = (100.0*self.total_misses) / self.total_access
         miss_rate = "{:.3f}".format(miss_rate)
-        result_str = str(self.total_misses)+","+miss_rate+"%"
-        print("Cache L", result_str, end="")
-        return [self.total_misses, miss_rate]
+        result_str = str(self.cache_level) + "," +str(self.total_misses)+","+miss_rate+"%"
+        print("Cache L", result_str)
+        return [int(self.total_misses), float(miss_rate), int(self.total_access)]
 
     def get_dirs(self, access_type, address):
         # Obtiene las direcciones para llamar datos al caché
