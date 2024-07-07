@@ -1,0 +1,2 @@
+l1_s, l1_a, has_l2, l2_s, l2_a, has_l3, l3_s, l3_a, block_size, TRACE_FILE, l1_misses, l1_miss_rate, l2_misses, l2_miss_rate, l3_misses, l3_miss_rate, AMAT_hacia_l1, AMAT_hacia_l2, AMAT_hacia_l3
+'32', '8', True, '256', '8', True, '512', '32', '64', '464.h264ref-30B.trace.txt.gz', 555, 0.056, 555, 0.056, 555, 0.056, 3997808.0, 4221657.248, 4857462.699008
