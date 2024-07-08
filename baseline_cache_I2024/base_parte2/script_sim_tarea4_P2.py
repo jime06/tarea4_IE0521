@@ -10,6 +10,8 @@ import datetime
 from os import system, getcwd, chdir, listdir
 from pdb import set_trace
 
+dir_actual = getcwd()
+
 # Funciones
 def sim_cache_parameters(Traces, config_original, dir_sim_p2, archivo_config, dir_Traces, dir_resultados, cmd_sim):
     # Valores a iterar
@@ -217,11 +219,11 @@ def sim_cache_L3(Traces, dir_sim_p2, dir_Traces, dir_res_L3):
 
 
 # Declaracion de variables
-dir_sim_p2     = "/home/juan/UCR/tarea4_IE0521/baseline_cache_I2024/base_parte2/cache_sim.py"
-dir_Traces     = "/home/juan/UCR/tarea4_IE0521/traces/"
-dir_res_L1     = "/home/juan/UCR/tarea4_IE0521/Results/Part2/Cache_L1/"
-dir_res_L2     = "/home/juan/UCR/tarea4_IE0521/Results/Part2/Cache_L2/"
-dir_res_L3     = "/home/juan/UCR/tarea4_IE0521/Results/Part2/Cache_L3/"
+dir_sim_p2     = dir_actual + "/baseline_cache_I2024/base_parte2/cache_sim.py"
+dir_Traces     = dir_actual + "/traces/"
+dir_res_L1     = dir_actual + "/Results/Part2/Cache_L1/"
+dir_res_L2     = dir_actual + "/Results/Part2/Cache_L2/"
+dir_res_L3     = dir_actual + "/Results/Part2/Cache_L3/"
 Traces = ["400.perlbench-41B.trace.txt.gz",
             "401.bzip2-226B.trace.txt.gz",
             "403.gcc-16B.trace.txt.gz",

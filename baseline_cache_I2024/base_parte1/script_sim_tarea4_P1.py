@@ -10,6 +10,7 @@ import datetime
 from os import system, getcwd, chdir, listdir
 from pdb import set_trace
 
+dir_actual = getcwd()
 
 # Funciones
 def sim_cache_parameters(Traces, config_original, dir_sim_p1, archivo_config, dir_Traces, dir_resultados, cmd_sim):
@@ -177,12 +178,12 @@ def sim_cache_replacement_policy(Traces, dir_sim_p1, dir_Traces, dir_resultados)
 
 
 # Declaracion de variables
-dir_sim_p1     = "/home/juan/UCR/tarea4_IE0521/baseline_cache_I2024/base_parte1/cache_sim.py"
-dir_Traces     = "/home/juan/UCR/tarea4_IE0521/traces/"
-dir_res_CS     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Size/"
-dir_res_CA     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Assoc/"
-dir_res_CB     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Block/"
-dir_res_CR     = "/home/juan/UCR/tarea4_IE0521/Results/Part1/Cache_Replacement/"
+dir_sim_p1     = dir_actual + "/baseline_cache_I2024/base_parte1/cache_sim.py"
+dir_Traces     = dir_actual + "/traces/"
+dir_res_CS     = dir_actual + "/Results/Part1/Cache_Size/"
+dir_res_CA     = dir_actual + "/Results/Part1/Cache_Assoc/"
+dir_res_CB     = dir_actual + "/Results/Part1/Cache_Block/"
+dir_res_CR     = dir_actual + "/Results/Part1/Cache_Replacement/"
 Traces = ["400.perlbench-41B.trace.txt.gz",
             "401.bzip2-226B.trace.txt.gz",
             "403.gcc-16B.trace.txt.gz",
